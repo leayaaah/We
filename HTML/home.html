@@ -22,6 +22,18 @@
     </div>
   </div>
 </div>
+<!-- Mobile Menu Button -->
+<div class="w3-bar w3-white w3-wide w3-padding w3-card w3-hide-medium w3-hide-large">
+  <a href="#home" class="w3-bar-item w3-button"><b>EA</b> Leayaaah</a>
+  <button class="w3-bar-item w3-button w3-right" onclick="toggleMobileMenu()">☰</button>
+</div>
+
+<!-- Mobile Menu (hidden by default) -->
+<div id="mobileMenu" class="w3-bar-block w3-white w3-hide w3-hide-medium w3-hide-large">
+  <a href="#projects" class="w3-bar-item w3-button">Places</a>
+  <a href="#about" class="w3-bar-item w3-button">About</a>
+  <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+</div>
 
 <!-- Header -->
 <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
@@ -228,11 +240,11 @@
   document.addEventListener('DOMContentLoaded', function() {
     const title = document.querySelector('.w3-xxlarge .w3-hide-small');
     if (title) {
-      const originalText = title.textContent;
-      let isDeleting = false;
-      let text = '';
-      let i = 0;
-      let typingSpeed = 100; // Adjust speed (milliseconds)
+    const originalText = title.textContent;
+    let isDeleting = false;
+    let text = '';
+    let i = 0;
+    let typingSpeed = window.innerWidth < 768 ? 150 : 100;
 
       function typeWriter() {
         // If deleting, remove characters
@@ -279,6 +291,17 @@
       document.body.classList.remove('scrolled-nav');
     }
   });
+</script>
+
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById("mobileMenu");
+  if (menu.classList.contains("w3-show")) {
+    menu.classList.remove("w3-show");
+  } else {
+    menu.classList.add("w3-show");
+  }
+}
 </script>
 
 </body>
